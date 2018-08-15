@@ -26,7 +26,7 @@ class Avarice < Formula
       system "make", "install"
     end
   end
-  
+
   test do
     system "#{bin}/avarice", "--version"
   end
