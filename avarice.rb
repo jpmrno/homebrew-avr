@@ -1,6 +1,8 @@
 class Avarice < Formula
   desc "Interfaces the GNU GDB with the AVR JTAG ICE from Atmel"
   homepage "https://avarice.sourceforge.io/"
+  url "https://downloads.sourceforge.net/avarice/avarice-2.13.tar.bz2"
+  sha256 "a14738fe78e1a0a9321abcca7e685a00ce3ced207622ccbcd881ac32030c104a"
   head "https://svn.code.sf.net/p/avarice/code/trunk"
 
   depends_on "binutils"
@@ -16,7 +18,7 @@ class Avarice < Formula
       "--prefix=#{prefix}",
     ]
 
-    system "./Bootstrap"
+    system "./Bootstrap" if File.file? "./Bootstrap"
 
     mkdir "build" do
       system "../configure", *args
